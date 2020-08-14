@@ -2876,7 +2876,7 @@ function renderHeader(_ref, instance) {
   issueLink.href = meta.html_url;
   issueLink.target = '_blank';
   issueLink.innerText = 'Issue Page';
-  // container.appendChild(issueLink);
+  container.appendChild(issueLink);
 
   return container;
 }
@@ -3127,7 +3127,7 @@ function render(state, instance) {
   container.appendChild(instance.renderHeader(state, instance));
   container.appendChild(instance.renderComments(state, instance));
   container.appendChild(instance.renderEditor(state, instance));
-  // container.appendChild(instance.renderFooter(state, instance));
+  container.appendChild(instance.renderFooter(state, instance));
   return container;
 }
 
@@ -3238,6 +3238,7 @@ function ajaxFactory(method) {
     if (method !== 'GET' && method !== 'DELETE') {
       body = JSON.stringify(data);
       req.setRequestHeader('Content-Type', 'application/json');
+      req.setRequestHeader('Accept', 'application/json');
     }
 
     req.send(body);
@@ -3748,4 +3749,3 @@ var spinner = exports.spinner = '<svg class="gitment-spinner-icon" xmlns="http:/
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=gitment.browser.js.map
